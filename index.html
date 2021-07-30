@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+<h1 class="heading">Student Grade Calculator</h1>
+  <div class="screen-body-item">
+    <div class="app-form">
+
+
+      <div class="app-form-group">
+        <input type="text" class="app-form-control" placeholder="Web development" id="wd">
+      </div>
+      <br>
+      <div class="app-form-group">
+        <input type="text" class="app-form-control" placeholder="Maths" id="maths">
+      </div>
+      <br>
+      <div class="app-form-group">
+        <input type="text" class="app-form-control" placeholder="Computer" id="comp">
+      </div>
+      <br>
+      <div class="app-form-group">
+        <input type="text" class="app-form-control" placeholder="Physics" id="phy">
+      </div>
+      <br>
+      <div class="app-form-group">
+        <input type="button" value="showPercentage" class="app-form-control" onclick="calcy()">
+      </div>
+    </div>
+    <div class="app-form showdata">
+      <p id="showData"></p>
+    </div>
+  </div>
+  <script>
+    function calcy() {
+      let wd = document.getElementById('wd').value;
+      let maths = document.getElementById('maths').value;
+      let comp = document.getElementById('comp').value;
+      let phy = document.getElementById('phy').value;
+      let grades = "";
+      let totalGrades = parseFloat(wd) + parseFloat(maths) + parseFloat(comp) + parseFloat(phy);
+      alert(totalGrades);
+      let perc = (totalGrades / 400) * 100;
+      alert(perc);
+      if (perc <= 100 && perc >= 80) {
+        grades = 'A';
+      } else if (perc <= 79 && perc >= 60) {
+        grades = 'B';
+      } else if (perc <= 59 && perc >= 40) {
+        grades = 'C';
+      } else {
+        grades = 'F';
+      }
+      if(perc>=39.5)
+      {
+        document.getElementById('showData').innerHTML=`Out of 400 your total is ${totalGrades} and percentage is ${perc}%. <br> Your grade is ${grades}.You are Pass.`
+      }
+      else{
+      document.getElementById(showData).innerHTML = `Out of 400 your total is ${totalGrades} and percentage is ${perc}%. <br> Your grade is ${grades}.You are fail.`
+    }
+  }
+  </script>
+</body>
+
+</html>
